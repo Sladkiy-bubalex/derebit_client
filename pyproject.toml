@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "programm for working with the derebit-com"
+version = "0.1.0"
+description = "A program for working with the Deribit API to obtain prices for currencies and then work with them."
+authors = ["Sladkiy-bubalex <shadow.ru_93@mail.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.13,<4.0"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
