@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog and this project adheres to Semantic Versioning.
 
+### [0.3.0] - 2026-01-15
+
+### Added
+- Async Database Manager
+- Lifespan for FastAPI application to manage database connection and settings
+- Models and first migration
+
+### Fix
+- fix(annotation for Settings class)
+
 ## [0.2.0] - 2025-01-15
 
 ### Added

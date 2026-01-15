@@ -7,14 +7,14 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    POSTGRES_HOST=os.getenv("POSTGRES_HOST")
-    POSTGRES_PORT=os.getenv("POSTGRES_PORT")
-    POSTGRES_DB=os.getenv("POSTGRES_DB")
-    POSTGRES_USER=os.getenv("POSTGRES_USER")
-    POSTGRES_PASSWORD=os.getenv("POSTGRES_PASSWORD")
+    POSTGRES_HOST: str = os.getenv("POSTGRES_HOST")
+    POSTGRES_PORT: str = os.getenv("POSTGRES_PORT")
+    POSTGRES_DB: str = os.getenv("POSTGRES_DB")
+    POSTGRES_USER: str = os.getenv("POSTGRES_USER")
+    POSTGRES_PASSWORD: str = os.getenv("POSTGRES_PASSWORD")
 
-    REDIS_HOST=os.getenv("REDIS_HOST")
-    REDIS_PORT=os.getenv("REDIS_PORT")
+    REDIS_HOST: str = os.getenv("REDIS_HOST")
+    REDIS_PORT: str = os.getenv("REDIS_PORT")
 
     DERIBIT_BASE_URL: str = "https://test.deribit.com/api/v2/public"
 

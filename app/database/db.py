@@ -7,15 +7,16 @@ from sqlalchemy.ext.asyncio import (
 from typing import AsyncGenerator, Optional
 from contextlib import asynccontextmanager
 
-
 class DatabaseManager:
     """Асинхронный менеджер базы данных"""
     
     def __init__(self, database_url: str):
         self.database_url = database_url
         self._engine: Optional[AsyncEngine] = None
-        self._session_factory: Optional[async_sessionmaker[AsyncSession]] = None
-    
+        self._session_factory: Optional[
+            async_sessionmaker[AsyncSession]
+        ] = None
+
     @property
     def engine(self) -> AsyncEngine:
         if self._engine is None:
@@ -27,9 +28,9 @@ class DatabaseManager:
                 max_overflow=10
             )
         return self._engine
-    
+
     @property
-    def session_factory(self) -> async_sessionmaker[AsyncSession]:
+    def async_session(self) -> async_sessionmaker[AsyncSession]:
         if self._session_factory is None:
             self._session_factory = async_sessionmaker(
                 bind=self.engine,
@@ -39,14 +40,18 @@ class DatabaseManager:
                 autoflush=False,
             )
         return self._session_factory
-    
+
+    async def dispose(self):
+        if self._engine:
+            await self._engine.dispose()
+            self._engine = None
+            self._session_factory = None
+
     @asynccontextmanager
     async def get_session(self) -> AsyncGenerator[AsyncSession, None]:
-        """Асинхронный контекстный менеджер для сессии"""
-        session = self.session_factory()
+        session = self.async_session()
         try:
             yield session
-            await session.commit()
         except Exception:
             await session.rollback()
             raise
