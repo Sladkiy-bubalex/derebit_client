@@ -22,5 +22,3 @@ async def lifespan(app: FastAPI):
     yield
 
     await db_manager.dispose()
-    
-

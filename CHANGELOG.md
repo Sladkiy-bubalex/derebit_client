@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on Keep a Changelog and this project adheres to Semantic Versioning.
 
+
+## [0.4.0] - 2026-01-17
+
+### Added
+- Client for Deribit API
+- Celery Worker for background tasks
+- Task Manager for managing Celery tasks
+- Price Repository for database operations
+- Price Fetcher for fetching and saving prices from Deribit API
+
 ### [0.3.0] - 2026-01-15
 
 ### Added

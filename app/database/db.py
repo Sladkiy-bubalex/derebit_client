@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import (
 from typing import AsyncGenerator, Optional
 from contextlib import asynccontextmanager
 
+
 class DatabaseManager:
     """Асинхронный менеджер базы данных"""
     
